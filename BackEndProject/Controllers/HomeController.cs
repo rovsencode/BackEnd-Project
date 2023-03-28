@@ -1,4 +1,5 @@
 ﻿using BackEndProject.DAL;
+using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -16,9 +17,15 @@ namespace BackEndProject.Controllers
         public IActionResult Index()
         {
 
-            var sliders = _appDbContext.Sliders.ToList();
-            if (sliders == null) return NotFound();
-            return View(sliders);
+         
+            HomeVM homeVM = new();
+            homeVM.Sliders= _appDbContext.Sliders.ToList(); 
+            homeVM.Notices= _appDbContext.Notices.ToList();
+            homeVM.eduHomeInfo=_appDbContext.EduHomeInfos.FirstOrDefault();
+            homeVM.BoardsInfos=_appDbContext.BoardInfos.ToList();
+            homeVM.sliderComment = _appDbContext.SliderComments.FirstOrDefault();
+                
+            return View(homeVM);
            
 
        

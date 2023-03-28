@@ -16,5 +16,8 @@ namespace BackEndProject.DAL
         public DbSet<BoardInfo> BoardInfos { get; set; }
         public DbSet<EduHomeInfo> EduHomeInfos { get; set;}
 
+        public DbSet<Bio> Bios { get; set; }
+        public DbSet<SliderComment> SliderComments { get; set; }
+
     }
 }
