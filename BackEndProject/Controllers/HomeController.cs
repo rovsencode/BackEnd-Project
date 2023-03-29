@@ -23,8 +23,7 @@ namespace BackEndProject.Controllers
             homeVM.Notices= _appDbContext.Notices.ToList();
             homeVM.eduHomeInfo=_appDbContext.EduHomeInfos.FirstOrDefault();
             homeVM.BoardsInfos=_appDbContext.BoardInfos.ToList();
-            homeVM.sliderComment = _appDbContext.SliderComments.FirstOrDefault();
-                
+            homeVM.sliderComment = _appDbContext.SliderComments.FirstOrDefault();      
             return View(homeVM);
            
 

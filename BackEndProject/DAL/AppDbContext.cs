@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackEndProject.DAL
 {
-    public class AppDbContext:IdentityDbContext<AppUser>
+    public class AppDbContext:DbContext
     {
 
         public AppDbContext(DbContextOptions options) :base(options)
@@ -18,6 +18,16 @@ namespace BackEndProject.DAL
 
         public DbSet<Bio> Bios { get; set; }
         public DbSet<SliderComment> SliderComments { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<TeacherHobbies> TeacherHobies { get; set; }
+        public DbSet<Socials> TeacherSocials { get; set; }
+
+        public DbSet<Hobbies> Hobbies { get; set; }
+        public DbSet<Skills> TeacherSkills { get; set; }
+
+
+
+
 
     }
 }

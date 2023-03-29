@@ -305,28 +305,7 @@
 </div>
 <!-- Event Area End -->
 <!-- Testimonial Area Start -->
-<div class="testimonial-area pt-110 pb-105 text-center">
-    <div class="container">
-        <div class="row">
-            <div class="testimonial-owl owl-theme owl-carousel">
-                <div class="col-md-8 col-md-offset-2 col-sm-12">
-                    <div class="single-testimonial">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="img/testimonial/testimonial.jpg" alt="testimonial">
-                            </div>
-                            <div class="testimonial-content">
-                                <p>@Model.sliderComment.Description</p>
-                                <h4>@Model.sliderComment.FullName</h4>
-                                <h5>@Model.sliderComment.Situation</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("TestiMonial")
 <!-- Testimonial Area End -->
 <!-- Blog Area Start -->
 <div class="blog-area pt-150 pb-150">
