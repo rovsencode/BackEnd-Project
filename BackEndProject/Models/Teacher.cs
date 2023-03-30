@@ -11,6 +11,7 @@
         public string Degree { get; set; }
         public string Faculty { get; set; }
         public string PhoneNumber { get; set; }
+        public string Skype { get; set; }
         public string Email { get; set; }
         public List<Socials> Socials { get; set; }
         public List<Skills> Skills { get; set; }

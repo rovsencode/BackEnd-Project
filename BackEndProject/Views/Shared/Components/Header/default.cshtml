@@ -1,4 +1,8 @@
 ﻿@model Bio
+@{
+    Random rd = new Random();
+    int rand = rd.Next(1, 12);
+}
 <header class="top">
     <div class="header-area header-sticky fixed">
         <div class="container">
@@ -42,10 +46,10 @@
                                         </ul>
                                     </li>
                                     <li class="hidden-sm">
-                                        <a href="teacher.html">teacher</a>
+                                        <a asp-controller="Teacher" asp-action="Index">teacher</a>
                                         <ul>
-                                            <li><a href="teacher.html">teacher</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
+                                            <li><a asp-controller="Teacher" asp-action="Index">teacher</a></li>
+                                            <li><a asp-controller="Teacher" asp-action="detail" asp-route-id="@rand" >teacher details</a></li>
                                         </ul>
                                     </li>
                                     <li>

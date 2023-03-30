@@ -225,26 +225,14 @@ namespace BackEndProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Facebook")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pinterest")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Skype")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Twitter")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Vimeo")
+                    b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -299,6 +287,10 @@ namespace BackEndProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Skype")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
@@ -338,11 +330,13 @@ namespace BackEndProject.Migrations
 
             modelBuilder.Entity("BackEndProject.Models.Socials", b =>
                 {
-                    b.HasOne("BackEndProject.Models.Teacher", null)
+                    b.HasOne("BackEndProject.Models.Teacher", "Teacher")
                         .WithMany("Socials")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.TeacherHobbies", b =>
