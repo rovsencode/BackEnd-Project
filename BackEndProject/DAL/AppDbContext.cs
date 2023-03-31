@@ -24,7 +24,7 @@ namespace BackEndProject.DAL
 
         public DbSet<Hobbies> Hobbies { get; set; }
         public DbSet<Skills> TeacherSkills { get; set; }
-
+        public DbSet <WelcomeEduHome>  WelcomeEduHomes{ get; set; }
 
 
 

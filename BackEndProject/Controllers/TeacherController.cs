@@ -26,7 +26,6 @@ namespace BackEndProject.Controllers
             Teacher teacher=  _appDbContext.Teachers.Include(t=>t.Socials)
                 .Include(t=>t.Skills).Include(t=>t.TeacherHobbies).FirstOrDefault(t=>t.Id==id);
             if (teacher == null) return NotFound();
-
            return View(teacher);
         }
     }

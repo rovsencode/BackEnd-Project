@@ -32,9 +32,12 @@
                             <a asp-action="detail" asp-controller="Teacher" asp-route-id="@teacher.Id"><img src="img/teacher/@teacher.ImageUrl" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a asp-action="detail" asp-controller="Teacher">@teacher.FullName</a></h2>
+                            <h2><a asp-action="detail" asp-controller="Teacher" asp-route-id="@teacher.Id">@teacher.FullName</a></h2>
                             <h4>@teacher.Position</h4>
                             <ul>
+                            
+                                
+                                
                                 @foreach (var social in teacher.Socials)
                                 {
                                     <li><a href="@social.Url"><i class="zmdi zmdi-@social.Name"></i></a></li>
