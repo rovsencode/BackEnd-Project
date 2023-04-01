@@ -55,6 +55,38 @@ namespace BackEndProject.Migrations
                     b.ToTable("Bios");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AuthorName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blogs");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.BoardInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -89,6 +121,23 @@ namespace BackEndProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Companie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.CourseFeatures", b =>
@@ -219,6 +268,37 @@ namespace BackEndProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EduHomeInfos");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Venue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Hobbies", b =>
@@ -370,6 +450,41 @@ namespace BackEndProject.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("TeacherSocials");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Speaker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CompanieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanieId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("Speakers");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Tags", b =>
@@ -553,6 +668,25 @@ namespace BackEndProject.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.Speaker", b =>
+                {
+                    b.HasOne("BackEndProject.Models.Companie", "Companie")
+                        .WithMany("Speakers")
+                        .HasForeignKey("CompanieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackEndProject.Models.Event", "Event")
+                        .WithMany("Speakers")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Companie");
+
+                    b.Navigation("Event");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.TeacherHobbies", b =>
                 {
                     b.HasOne("BackEndProject.Models.Hobbies", "Hobbie")
@@ -577,11 +711,21 @@ namespace BackEndProject.Migrations
                     b.Navigation("courses");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.Companie", b =>
+                {
+                    b.Navigation("Speakers");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.Courses", b =>
                 {
                     b.Navigation("CourseFeatures");
 
                     b.Navigation("CourseTags");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.Event", b =>
+                {
+                    b.Navigation("Speakers");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Hobbies", b =>
