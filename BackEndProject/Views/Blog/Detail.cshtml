@@ -95,7 +95,7 @@
                         {
                             <div class="single-post mb-30">
                                 <div class="single-post-img">
-                                    <a href="blog-details.html">
+                                    <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">
                                         <img src="~/img/blog/@blog.ImageUrl" width="95px" height="84px" alt="post">
                                         <div class="blog-hover">
                                             <i class="fa fa-link"></i>
@@ -103,7 +103,7 @@
                                     </a>
                                 </div>
                                 <div class="single-post-content">
-                                    <h4><a href="blog-details.html">@blog.Name</a></h4>
+                                    <h4><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">@blog.Name</a></h4>
                                     <p>@blog.AuthorName  /  June 20, 2017</p>
                                 </div>
                             </div>
