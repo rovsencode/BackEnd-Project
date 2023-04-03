@@ -8,5 +8,6 @@
         public string AuthorName { get; set; }
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
+        public List<BlogTag> BlogTags { get; set;}
     }
 }

@@ -11,5 +11,7 @@ namespace BackEndProject.Models
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public List<Speaker> Speakers { get; set; }
+        public DateTime Deadline { get; set; }
+        public List<EventTag> EventTags { get; set; }
     }
 }

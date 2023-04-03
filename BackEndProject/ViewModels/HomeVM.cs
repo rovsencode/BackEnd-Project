@@ -9,5 +9,8 @@ namespace BackEndProject.ViewModels
         public List<Notice> Notices;
         public EduHomeInfo eduHomeInfo;
         public SliderComment sliderComment;
+        public List<Courses> Courses { get; set; }
+        public List<Event> Events { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }

@@ -25,10 +25,12 @@ namespace BackEndProject.Controllers
         public IActionResult Detail(int id)
         {
             EventDetailVM eventDetailVM = new();
-           eventDetailVM.even= _appDbContext.Events.Include(e=>e.Speakers)
-                .ThenInclude(e=>e.Companie)
+            eventDetailVM.even = _appDbContext.Events.Include(e => e.Speakers)
+                 .ThenInclude(e => e.Companie).Include(e => e.EventTags).ThenInclude(e => e.Tag)
                 .FirstOrDefault(e=>e.Id==id);
             eventDetailVM.Categories = _appDbContext.Categories.ToList();
+            eventDetailVM.Blogs = _appDbContext.Blogs.Take(3).ToList();
+           
             return View(eventDetailVM);
         }
     }

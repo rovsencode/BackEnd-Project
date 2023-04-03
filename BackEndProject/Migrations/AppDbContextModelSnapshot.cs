@@ -87,6 +87,29 @@ namespace BackEndProject.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.BlogTag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("BlogTag");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.BoardInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -281,6 +304,9 @@ namespace BackEndProject.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -299,6 +325,29 @@ namespace BackEndProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.EventTag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("EventTag");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Hobbies", b =>
@@ -605,6 +654,25 @@ namespace BackEndProject.Migrations
                     b.ToTable("WelcomeEduHomes");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.BlogTag", b =>
+                {
+                    b.HasOne("BackEndProject.Models.Blog", "Blog")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackEndProject.Models.Tags", "Tag")
+                        .WithMany("BlogTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Blog");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.CourseFeatures", b =>
                 {
                     b.HasOne("BackEndProject.Models.Courses", "Course")
@@ -642,6 +710,25 @@ namespace BackEndProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("BackEndProject.Models.EventTag", b =>
+                {
+                    b.HasOne("BackEndProject.Models.Event", "Event")
+                        .WithMany("EventTags")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BackEndProject.Models.Tags", "Tag")
+                        .WithMany("EventTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
 
                     b.Navigation("Tag");
                 });
@@ -706,6 +793,11 @@ namespace BackEndProject.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("BackEndProject.Models.Blog", b =>
+                {
+                    b.Navigation("BlogTags");
+                });
+
             modelBuilder.Entity("BackEndProject.Models.Categories", b =>
                 {
                     b.Navigation("courses");
@@ -725,6 +817,8 @@ namespace BackEndProject.Migrations
 
             modelBuilder.Entity("BackEndProject.Models.Event", b =>
                 {
+                    b.Navigation("EventTags");
+
                     b.Navigation("Speakers");
                 });
 
@@ -735,7 +829,11 @@ namespace BackEndProject.Migrations
 
             modelBuilder.Entity("BackEndProject.Models.Tags", b =>
                 {
+                    b.Navigation("BlogTags");
+
                     b.Navigation("CourseTags");
+
+                    b.Navigation("EventTags");
                 });
 
             modelBuilder.Entity("BackEndProject.Models.Teacher", b =>

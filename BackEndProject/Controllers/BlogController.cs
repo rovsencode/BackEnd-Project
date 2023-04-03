@@ -2,6 +2,7 @@
 using BackEndProject.Models;
 using BackEndProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEndProject.Controllers
 {
@@ -23,7 +24,7 @@ namespace BackEndProject.Controllers
         {
             if (id == null) return NotFound();
             BlogDetailVM blogDetailVM = new();
-            blogDetailVM.Blog= _appDbContext.Blogs.FirstOrDefault(b=>b.Id==id);
+            blogDetailVM.Blog= _appDbContext.Blogs.Include(b=>b.BlogTags).ThenInclude(b=>b.Tag).FirstOrDefault(b=>b.Id==id);
             blogDetailVM.Categories= _appDbContext.Categories.ToList();
             blogDetailVM.Blogs = _appDbContext.Blogs.Take(3).ToList();
             if(blogDetailVM==null) return NotFound();

@@ -37,7 +37,7 @@
                             </div>
                             <div class="blog-content">
                                 <div class="blog-top">
-                                    <p>By @blog.AuthorName /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
+                                <p>By @blog.AuthorName /@blog.DateTime.ToString(" dd MMMM, yyyy")/<i class="fa fa-comments-o"></i> 4</p>
                                 </div>
                                 <div class="blog-bottom">
                                     <h2><a asp-action="detail" asp-route-id="@blog.Id">@blog.Description </a></h2>

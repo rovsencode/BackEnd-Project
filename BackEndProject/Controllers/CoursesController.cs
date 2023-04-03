@@ -27,7 +27,8 @@ namespace BackEndProject.Controllers
             if(id==null)return NotFound();
             CourseDetailVM courseDetailVM = new()
             {
-                Categories =  _appDbContext.Categories.ToList(),
+                Blogs =  _appDbContext.Blogs.Take(3).ToList(),
+                Categories =   _appDbContext.Categories.ToList(),
                 Course = await _appDbContext.Courses.Include(c=>c.CourseFeatures).Include(c => c.CourseTags)
                .ThenInclude(c =>c.Tag).FirstOrDefaultAsync(c => c.Id == id)
         };

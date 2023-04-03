@@ -31,7 +31,7 @@
                     </div>
                     <div class="blog-details-content">
                         <h2>@Model.Blog.Name </h2>
-                        <h6>By @Model.Blog.AuthorName /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</h6>
+                        <h6>By @Model.Blog.AuthorName / @Model.Blog.DateTime.ToString(" dd MMMM, yyyy")  /  <i class="fa fa-comments-o"></i> 4</h6>
                         <p>@Model.Blog.Description</p>
                     </div>
                     <div class="reply-area">
@@ -73,51 +73,22 @@
                             </form>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-47">
-                        <h3>categories</h3>
-                        <ul>
-                            @foreach (var category in Model.Categories)
-                            {
-                                <li><a href="#">@category.Name (10)</a></li>
-                            }
-              
-                        </ul>
-                    </div>
+                <!--bura categori yeridi-->
+                @await Html.PartialAsync("_CategoriesPartial",Model.Categories)
                     <div class="single-blog-widget mb-47">
                         <div class="single-blog-banner">
                             <a href="blog-details.html" id="blog"><img src="~/img/blog/blog-img.jpg" alt="blog"></a>
                             <h2>best<br> eductaion<br> theme</h2>
                         </div>
                     </div>
-                    <div class="single-blog-widget mb-47">
-                        <h3>latest post</h3>
-                      @foreach (var blog in Model.Blogs)
-                        {
-                            <div class="single-post mb-30">
-                                <div class="single-post-img">
-                                    <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">
-                                        <img src="~/img/blog/@blog.ImageUrl" width="95px" height="84px" alt="post">
-                                        <div class="blog-hover">
-                                            <i class="fa fa-link"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="single-post-content">
-                                    <h4><a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">@blog.Name</a></h4>
-                                    <p>@blog.AuthorName  /  June 20, 2017</p>
-                                </div>
-                            </div>
-                        }
-                    </div>
+                  @await Html.PartialAsync("_BlogsPartial",Model.Blogs)
                     <div class="single-blog-widget">
                         <h3>tags</h3>
                         <div class="single-tag">
-                            <a href="blog-details.html" class="mr-10 mb-10">course</a>
-                            <a href="blog-details.html" class="mr-10 mb-10">education</a>
-                            <a href="blog-details.html" class="mb-10">teachers</a>
-                            <a href="blog-details.html" class="mr-10">learning</a>
-                            <a href="blog-details.html" class="mr-10">university</a>
-                            <a href="blog-details.html">events</a>
+                            @foreach (var item in Model.Blog.BlogTags)
+                            {
+                                <a href="blog-details.html" class="mr-10">@item.Tag.Name</a>
+                            }
                         </div>
                     </div>
                 </div>
