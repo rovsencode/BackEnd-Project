@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yKfvZZ/tPBq7vHSiqsW3Fa0Ka/grHSJB2gyD08Zsc04=",
+  "Hash": "czRW7Hzl0zar9mPOp773gBGqRc4RuawnZHZdzg2xehc=",
   "Source": "BackEndProject",
   "BasePath": "_content/BackEndProject",
   "Mode": "Default",
@@ -3755,6 +3755,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\post\\post3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\img\\slider\\b4c697ba-c8aa-4e91-83ac-d2767b65b9aaFibannoci.png",
+      "SourceId": "BackEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\",
+      "BasePath": "_content/BackEndProject",
+      "RelativePath": "img/slider/b4c697ba-c8aa-4e91-83ac-d2767b65b9aaFibannoci.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\slider\\b4c697ba-c8aa-4e91-83ac-d2767b65b9aaFibannoci.png"
     },
     {
       "Identity": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\img\\slider\\home.png",
