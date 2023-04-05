@@ -1,0 +1,66 @@
+﻿@model BlogUpdateVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/AdminArea/Views/Shared/_Layout.cshtml";
+}
+
+@using BackEndProject.ViewModels;
+
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <img src="~/img/blog/@Model.ImageUrl" width="150" height="150" />
+                <a asp-action="Index" class="btn btn-dark">
+                    Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="card" style="width:80%;">
+        <div class="card-body">
+
+            <h4 class="card-title">Default form</h4>
+            <p class="card-description">
+                Create Category Form
+            </p>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <input asp-for="Photo" class="form-control">
+                    <span class="text-danger" asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" class="form-control">
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AuthorName"></label>
+                    <input asp-for="AuthorName" class="form-control">
+                    <span class="text-danger" asp-validation-for="AuthorName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateTime"></label>
+                    <input asp-for="DateTime" class="form-control">
+                    <span class="text-danger" asp-validation-for="DateTime"></span>
+                </div>
+    
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
