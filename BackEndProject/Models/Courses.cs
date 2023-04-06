@@ -10,7 +10,7 @@
         public string ApplyDescrip { get; set; }
         public string Certification { get; set; }
         public Categories Categories { get; set; }
-        public int CategoriesId { get; set; }
+        //public int CategoriesId { get; set; }
         public List<CourseFeatures> CourseFeatures { get; set; }
         public List<CourseTags> CourseTags { get; set; }
     }

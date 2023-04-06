@@ -3,8 +3,10 @@ using BackEndProject.Migrations;
 using BackEndProject.Models;
 using BackEndProject.ViewModels;
 using FirelloProject.Extentions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEndProject.Areas.AdminArea.Controllers
 {
@@ -18,6 +20,7 @@ namespace BackEndProject.Areas.AdminArea.Controllers
         {
             _appDbContext = appDbContext;
             _env = env;
+       
         }
 
         public IActionResult Index()
@@ -26,6 +29,7 @@ namespace BackEndProject.Areas.AdminArea.Controllers
         }
         public IActionResult Detail(int id)
         {
+
             if (id == null) return NotFound();
             Blog blog = _appDbContext.Blogs.SingleOrDefault(n => n.Id == id);
             if (blog == null) return NotFound();
@@ -109,5 +113,6 @@ namespace BackEndProject.Areas.AdminArea.Controllers
             _appDbContext.SaveChanges();
             return RedirectToAction("Index");
         }
+  
     }
 }

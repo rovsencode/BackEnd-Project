@@ -8,5 +8,6 @@ namespace BackEndProject.ViewModels
         public List<Categories> Categories { get; set; }
         public List<Blog> Blogs { get; set; }
         public List<Tags> Tags { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

@@ -64,7 +64,7 @@ namespace BackEndProject.Areas.AdminArea.Controllers
                 ApplyDescrip= course.ApplyDescrip,
                 Certification= course.Certification,
                 ImageUrl = course.Photo.SaveImage(_env, "img/course", course.Photo.FileName),
-                CategoriesId = course.CategoryId,
+                //CategoriesId = course.CategoryId,
 
             };
 
