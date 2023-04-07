@@ -2,6 +2,7 @@
 using BackEndProject.Models;
 using FirelloProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEndProject.Areas.AdminArea.Controllers
 {
@@ -25,7 +26,7 @@ namespace BackEndProject.Areas.AdminArea.Controllers
             public IActionResult Detail(int id)
             {
                 if (id == null) return NotFound();
-                Categories category = _appDbContext.Categories.SingleOrDefault(c => c.Id == id);
+                Categories category = _appDbContext.Categories.Include(c=>c.courses).FirstOrDefault(c => c.Id == id);
                 if (category == null) return NotFound();
                 return View(category);
             }

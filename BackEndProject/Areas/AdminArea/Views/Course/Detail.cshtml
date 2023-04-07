@@ -1,0 +1,27 @@
+﻿@model Courses
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div class="card" style="width: 18rem;">
+
+    <img src="~/img/course/@Model.ImageUrl" width="100" height="100" />
+
+
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Description  : @Model.Description</li>
+        <li class="list-group-item">About <br/> @Model.About</li>
+        <li class="list-group-item">Certofication <br /> @Model.Certification</li>
+        <li class="list-group-item">ApplyDescription <br /> @Model.ApplyDescrip</li>
+    </ul>
+</div>
+
+
+
+
+

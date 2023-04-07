@@ -1,0 +1,27 @@
+﻿@model Event
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div class="card" style="width: 18rem;">
+
+    <img src="~/img/event/@Model.ImageUrl" width="100" height="100" />
+
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Venue: @Model.Venue</li>
+        <li class="list-group-item">Description Name: @Model.Description</li>
+        <li class="list-group-item">Start Time: @Model.Date</li>
+        <li class="list-group-item">Deadline: @Model.Deadline</li>
+
+
+    </ul>
+</div>
+
+
+
+
+

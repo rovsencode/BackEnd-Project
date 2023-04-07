@@ -13,7 +13,7 @@ namespace BackEndProject
           
             services.AddHttpContextAccessor();
 
-            services.AddIdentity<AppUser, IdentityRole>(options =>
+            services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = true;
@@ -26,9 +26,7 @@ namespace BackEndProject
                 options.Lockout.AllowedForNewUsers=true;
                 options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(20);
                 options.Lockout.MaxFailedAccessAttempts = 3;
-            }).AddEntityFrameworkStores<AppDbContext>()
-              .AddDefaultTokenProviders()
-              .AddErrorDescriber<CustomIdentityErrorDescriper>();
+            });
 
         } 
     }

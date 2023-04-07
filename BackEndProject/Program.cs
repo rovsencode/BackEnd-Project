@@ -1,5 +1,8 @@
 using BackEndProject.DAL;
-using FirelloProject;
+using BackEndProject.Models;
+using BackEndProject.Services;
+using BackEndProject.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 namespace BackEndProject
 {
@@ -28,6 +31,13 @@ namespace BackEndProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            builder.Services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
+            //builder.Services.AddScoped<IEmailService, EmailService>();
+            //builder.Services.AddScoped<IFileService, FileService>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();

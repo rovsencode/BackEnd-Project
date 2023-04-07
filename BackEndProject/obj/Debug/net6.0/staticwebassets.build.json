@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fLHLgrPU5IYqBI2d3IfRmMyB5dFTN83xllQiO4KpCd8=",
+  "Hash": "oicCJRvmYLiRaF1sZrkhL4ndXd9m/pqoNdBQFGSP66E=",
   "Source": "BackEndProject",
   "BasePath": "_content/BackEndProject",
   "Mode": "Default",
@@ -4299,6 +4299,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\vendor\\modernizr-2.8.3.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\Template\\Verify.html",
+      "SourceId": "BackEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\",
+      "BasePath": "_content/BackEndProject",
+      "RelativePath": "Template/Verify.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Template\\Verify.html"
     }
   ]
 }

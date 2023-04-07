@@ -501,6 +501,10 @@
       "PackagePath": "staticwebassets\\Admin\\vendors\\mdi\\fonts\\materialdesignicons-webfont.woff2"
     },
     {
+      "Id": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\Template\\Verify.html",
+      "PackagePath": "staticwebassets\\Template\\Verify.html"
+    },
+    {
       "Id": "C:\\Users\\HP\\Desktop\\BackEndProject\\BackEndProject\\wwwroot\\css\\animate.css",
       "PackagePath": "staticwebassets\\css\\animate.css"
     },
